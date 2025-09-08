@@ -17,7 +17,7 @@ class Config:
         print("Configuration loaded successfully.")
         print(f"Secret Key (masked): {self._mask(self.secret_key)}")
         print(f"Password (masked): {self._mask(self.password)}")
-        print(f"BaseAuth Token: {self.baseauth}")
+        print(f"BaseAuth Token: {baseAuth}")
 
     def _mask(self, value):
         """Mask sensitive info except last 3 chars"""
