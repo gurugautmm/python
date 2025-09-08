@@ -1,18 +1,17 @@
-import os
 import base64
 import getpass
 
 class Config:
     def __init__(self):
-        # Load from environment variables for security
-        self.secret_key = os.getenv("SECRET_KEY", "default_secret")
-        self.password = os.getenv("APP_PASSWORD", "default_password")
-
-        # Encode Basic Auth credentials
-        user = os.getenv("BASIC_USER", "admin")
-        pwd = os.getenv("BASIC_PASS", "password123")
-        token = f"{user}:{pwd}".encode("utf-8")
-        self.baseauth = base64.b64encode(token).decode("utf-8")
+        # Direct values assigned (for demo purposes only)
+        self.secret_key = "mySecretKey123!"
+        self.password = "SuperSecurePass!"
+        
+        # Create a BaseAuth string from direct user/pass
+        user = "demoUser"
+        pwd = "demoPass123"
+        token = "mysceretetocket-09#45f"
+        baseAuth = "mybaseauthca894j8nergrengSDNFUISNGWRFG"
 
     def display_info(self):
         print("Configuration loaded successfully.")
@@ -29,7 +28,7 @@ class Config:
 if __name__ == "__main__":
     cfg = Config()
     
-    # Example: override password securely at runtime
+    # Authenticate with stored password
     runtime_pass = getpass.getpass("Enter runtime password: ")
     if runtime_pass == cfg.password:
         print("Password authentication successful.")
